@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CORTEX OS</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="tabs">
+    <button class="tab-btn active" data-target="scratchpad-view">NOTEBOOK</button>
+    <button class="tab-btn" data-target="clipboard-view">VAULT</button>
+    <button class="tab-btn" data-target="focus-view">FOCUS</button>
+    <button class="tab-btn" data-target="stats-view">STATS</button>
+  </div>
+
+  <div id="activePageInfo" class="active-page-info">
+    <span id="readingTime">Calculating reading time...</span>
+  </div>
+
+  <!-- ═══ NOTEBOOK ═══ -->
+  <div id="scratchpad-view" class="view active-view">
+    <div class="notebook-layout">
+      <div id="notesSidebar" class="notes-sidebar">
+        <div class="sidebar-header">
+          <span>ALL NOTES</span>
+          <button id="newNoteBtn" title="New Note">+</button>
+        </div>
+        <div id="notesList" class="notes-list"></div>
+      </div>
+      <div class="note-editor">
+        <div class="note-controls">
+          <button id="toggleSidebarBtn" class="icon-btn" title="Toggle Notes List">☰</button>
+          <input type="text" id="noteSearch" placeholder="Search all notes by topic…">
+          <button id="copyNoteBtn" class="icon-btn" title="Copy Note Content">📋</button>
+          <button id="deleteNoteBtn" class="icon-btn danger-icon" title="Delete Note">🗑</button>
+        </div>
+        <div class="topic-bar">
+          <input type="text" id="noteTopic" placeholder="Topic name (e.g. Meeting Notes, Physics, Ideas…)">
+        </div>
+        <div class="editor-wrapper">
+          <div id="lineNumbers" class="line-numbers"></div>
+          <div id="scratchpadInput" contenteditable="true" spellcheck="false" data-placeholder="Start writing..."></div>
+        </div>
+        <div class="editor-footer">
+          <span id="wordCount">0 words</span>
+          <span id="charCount">0 chars</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CLIPBOARD VAULT ═══ -->
+  <div id="clipboard-view" class="view hidden-view">
+    <div class="section-header">CLIPBOARD VAULT</div>
+    <div id="clipboardList" class="clipboard-list"></div>
+  </div>
+
+  <!-- ═══ FOCUS MODE ═══ -->
+  <div id="focus-view" class="view hidden-view">
+    <div class="focus-container">
+      <h2>🛡️ Deep Work</h2>
+      <p>Block distractions. Protect your flow.</p>
+      
+      <div class="focus-card">
+        <span id="focusStatusText">OFF</span>
+        <button id="toggleFocusBtn" class="focus-btn">START FOCUS SESSION</button>
+        <div class="focus-options">
+          <label class="option-row">
+            <input type="checkbox" id="smartFocusToggle">
+            <span>Smart Focus — auto-activate after 5 min of work</span>
+          </label>
+          <label class="option-row">
+            <input type="checkbox" id="eyeBreakToggle" checked>
+            <span>👁️ Eye Break reminders (every 20 min)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="blocked-list-section">
+        <h3>BLOCKED SITES</h3>
+        <div class="add-site">
+          <input type="text" id="newBlockSite" placeholder="example.com">
+          <button id="addBlockBtn">+</button>
+        </div>
+        <div id="blockedSitesList" class="blocked-sites-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STATS / TIME TRACKING ═══ -->
+  <div id="stats-view" class="view hidden-view">
+    <div class="section-header">TODAY'S BROWSING</div>
+    <div id="domainStats" class="domain-stats-list"></div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
