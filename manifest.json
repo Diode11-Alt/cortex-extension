@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "CORTEX",
+  "version": "3.0.0",
+  "description": "Productivity OS: Smart Tabs, Notebook, Vault, Focus, Eye Care & Time Tracking.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "sidePanel",
+    "activeTab",
+    "tabs",
+    "alarms",
+    "scripting",
+    "contextMenus",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "CORTEX Dashboard"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content/content.css"],
+      "js": ["content/content.js"]
+    }
+  ]
+}
