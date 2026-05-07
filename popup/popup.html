@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CORTEX Dashboard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">CORTEX <span>OS</span></div>
+    <div class="status">v3.0</div>
+  </div>
+  
+  <div class="stats-container">
+    <div class="stat-box">
+      <div class="stat-label">OPEN TABS</div>
+      <div class="stat-value" id="tabStat">--</div>
+    </div>
+    <div class="stat-box accent">
+      <div class="stat-label">HIBERNATING</div>
+      <div class="stat-value" id="closingStat">--</div>
+    </div>
+  </div>
+
+  <div class="search-section">
+    <input type="text" id="omniSearch" placeholder="Search open tabs…">
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <div class="actions">
+    <button id="openNotebookBtn" class="primary-btn">OPEN SIDE PANEL</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
